@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "scala",
+      "request": "launch",
+      "name": "hello",
+      "mainClass": "demo.hello",
+      "buildTarget": "file:/C:/Projects/HES/MA-AdvProg/exo2/?id=exo2",
+      "args": [],
+      "jvmOptions": [],
+      "env": {}
+    }
+  ]
+}
