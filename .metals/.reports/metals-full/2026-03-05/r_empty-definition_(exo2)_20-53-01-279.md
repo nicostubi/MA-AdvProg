@@ -1,13 +1,30 @@
+error id: file:///C:/Projects/HES/MA-AdvProg/exo2/src/main/scala/exo2/DatasetManager.scala:
+file:///C:/Projects/HES/MA-AdvProg/exo2/src/main/scala/exo2/DatasetManager.scala
+empty definition using pc, found symbol in pc: 
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+	 -Player.fromRow.
+	 -Player.fromRow#
+	 -Player.fromRow().
+	 -scala/Predef.Player.fromRow.
+	 -scala/Predef.Player.fromRow#
+	 -scala/Predef.Player.fromRow().
+offset: 258
+uri: file:///C:/Projects/HES/MA-AdvProg/exo2/src/main/scala/exo2/DatasetManager.scala
+text:
+```scala
 package exo2
 
 import scala.io.Source
 
-object DatasetLoader {
+object DatasetManager {
 
   def load(path: String): Dataset=
     val lines = Source.fromFile(path, "UTF-8").getLines().drop(1)
     val rows = lines.toList.map(parseRow)
-    Dataset(rows)
+    val players: List[Player] = rows.map(Player.from@@Row)
+    Dataset(rows, players)
 
   private def parseRow(line: String): DataRow=
 
@@ -37,3 +54,10 @@ object DatasetLoader {
   private def splitCsv(line: String): List[String] =
     line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)").map(_.replace("\"", "")).toList
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: 
