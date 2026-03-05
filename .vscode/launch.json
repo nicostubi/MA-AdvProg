@@ -20,6 +20,16 @@
       "args": [],
       "jvmOptions": [],
       "env": {}
+    },
+    {
+      "type": "scala",
+      "request": "launch",
+      "name": "run",
+      "mainClass": "exo2.run",
+      "buildTarget": "file:/C:/Projects/HES/MA-AdvProg/exo2/?id=exo2",
+      "args": [],
+      "jvmOptions": [],
+      "env": {}
     }
   ]
 }
