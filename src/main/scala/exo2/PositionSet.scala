@@ -15,6 +15,5 @@ case class PositionSet(positions: Set[Position]) {
 object PositionSet {
 
   def fromString(value: String): PositionSet =
-    val positions = value.split(",").map(_.trim).map(Position.fromString).toSet
-    PositionSet(positions)
+    PositionSet(value.split(",").map(_.trim).map(Position.fromString).toSet)
 }

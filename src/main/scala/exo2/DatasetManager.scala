@@ -4,11 +4,15 @@ import scala.io.Source
 
 object DatasetManager {
 
-  def load(path: String): Dataset=
-    val lines = Source.fromFile(path, "UTF-8").getLines().drop(1)
-    val rows = lines.toList.map(parseRow)
-    val players: List[Player] = rows.map(row => Player.fromRow(row))
+  def load(path: String): Dataset =
+    val rows: List[DataRow] = readLines(path).map(parseRow)
+
+    val players: List[Player] = rows.map(Player.fromRow)
+
     Dataset(rows, players)
+
+  private def readLines(path: String): List[String] =
+    Source.fromFile(path, "UTF-8").getLines().drop(1).toList
 
   private def parseRow(line: String): DataRow=
 
@@ -26,11 +30,11 @@ object DatasetManager {
       goals = cols(8).toInt,
       assists = cols(9).toInt,
       passesAttempted = cols(10).toInt,
-      percPassesCompleted = Option(cols(11)).filter(_.nonEmpty).map(_.toDouble),
+      percPassesCompleted = cols(11).toDoubleOption,
       penaltyGoals = cols(12).toInt,
       penaltyAttempted = cols(13).toInt,
-      xG = Option(cols(14)).filter(_.nonEmpty).map(_.toDouble),
-      xA = Option(cols(15)).filter(_.nonEmpty).map(_.toDouble),
+      xG = cols(14).toDoubleOption,
+      xA = cols(15).toDoubleOption,
       yellowCards = cols(16).toInt,
       redCards = cols(17).toInt
     )
