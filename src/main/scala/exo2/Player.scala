@@ -1,10 +1,12 @@
 package exo2
 
-case class Player(name:String, age:Int, positions: PositionSet, stats: PlayerStats) {
+case class Player(name:String, age:Int, club: Club, nationality: Nationality, positions: PositionSet, stats: PlayerStats) {
 
   def summary: String =
     "Name: " + name +
     ", Age: " + age +
+    ", Club: " + club.name +
+    ", Nationality: " + nationality.code +
     ", Positions: " + positions.positions +
     ", Stats: " + stats.summary
 }
@@ -13,6 +15,8 @@ object Player {
 
   def fromRow(row: DataRow): Player =
     val positions = PositionSet.fromString(row.position)
+    val club = Club(row.club)
+    val nationality = Nationality(row.nationality)
 
     val stats: PlayerStats =
       if positions.isGoalkeeper then
@@ -43,6 +47,8 @@ object Player {
     Player(
       name = row.name,
       age = row.age,
+      club = club,
+      nationality = nationality,
       positions = positions,
       stats = stats
     )
