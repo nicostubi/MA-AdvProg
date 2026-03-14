@@ -1,4 +1,4 @@
-package exo2.domain
+package exo2.domain.Position
 
 enum Position:
   case Goalkeeper, Defender, Midfielder, Forward

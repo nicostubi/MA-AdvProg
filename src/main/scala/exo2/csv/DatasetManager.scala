@@ -1,13 +1,13 @@
 package exo2.csv
 
 import scala.io.Source
-import exo2.domain.Player
-import exo2.domain.PlayerDataset
+import exo2.domain.Player.Player
+import exo2.domain.Player.PlayerDataset
 import exo2.csv.DataRow
 
 object DatasetManager {
 
-  def load(path: String): PlayerDataset =
+  def load(path: String): PlayerDataset[Player] =
     val rows: List[DataRow] = readLines(path).map(parseRow)
 
     val players: List[Player] = rows.map { row =>
