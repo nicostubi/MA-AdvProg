@@ -1,6 +1,6 @@
 package exo2.domain.Player
 import exo2.domain.Player.Player
-import exo2.csv.DataRow
+import exo2.parsers.DataRow
 
 /**
  * Immutable covariant dataset of players.

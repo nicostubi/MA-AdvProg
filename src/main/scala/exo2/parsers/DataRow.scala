@@ -1,4 +1,4 @@
-package exo2.csv
+package exo2.parsers
 
 case class DataRow(
   name: String,

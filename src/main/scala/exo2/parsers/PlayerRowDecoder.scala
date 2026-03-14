@@ -1,4 +1,4 @@
-package exo2.csv
+package exo2.parsers
 
 import exo2.domain.Club.Club
 import exo2.domain.Nationality.Nationality

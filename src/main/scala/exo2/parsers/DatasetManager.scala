@@ -1,9 +1,9 @@
-package exo2.csv
+package exo2.parsers
 
 import scala.io.Source
 import exo2.domain.Player.Player
 import exo2.domain.Player.PlayerDataset
-import exo2.csv.DataRow
+import exo2.parsers.DataRow
 
 object DatasetManager {
 

@@ -1,4 +1,4 @@
-package exo2.csv
+package exo2.parsers
 
 /**
  * Generic CSV row decoder using a parametrized type A.
