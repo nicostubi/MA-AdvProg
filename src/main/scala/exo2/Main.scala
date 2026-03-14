@@ -1,6 +1,10 @@
 package exo2
 import exo2.parsers.DatasetManager
 import exo2.render.PlayerRenderer
+import exo2.demos.ContravarianceDemo
+import exo2.demos.CovarianceDemo
+import exo2.domain.Stats.GoalkeeperStats
+import exo2.domain.Stats.OutfieldStats
 
 @main def run()=
   val dataset = DatasetManager.load("src/main/scala/exo2/data/09-PremierLeague.csv")
@@ -30,3 +34,14 @@ import exo2.render.PlayerRenderer
   println()
   println("PlayerRenderer works for Goalkeeper because Renderer is contravariant")
   ContravarianceDemo.printDataset(goalkeepers, PlayerRenderer)
+
+  println()
+  println("union types demo")
+
+  dataset.players.foreach { player =>
+    val description = StatsUnionDemo.describe(player.stats match
+      case gk: GoalkeeperStats => gk
+      case of: OutfieldStats   => of
+    )
+    println(player.name + " => " + description)
+  }

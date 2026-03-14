@@ -1,4 +1,4 @@
-package exo2
+package exo2.demos
 
 import exo2.domain.Player.*
 import exo2.render.*
