@@ -10,7 +10,11 @@ object DatasetManager {
   def load(path: String): PlayerDataset =
     val rows: List[DataRow] = readLines(path).map(parseRow)
 
-    val players: List[Player] = rows.map(Player.fromRow)
+    val players: List[Player] = rows.map { row =>
+      PlayerRowDecoder.decode(row) match
+        case Right(player) => player
+        case Left(error)   => throw new IllegalArgumentException(error)
+    }
 
     PlayerDataset(rows, players)
 
