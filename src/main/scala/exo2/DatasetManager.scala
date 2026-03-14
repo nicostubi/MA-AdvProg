@@ -2,7 +2,9 @@ package exo2
 
 import scala.io.Source
 
-object DatasetManager {
+
+// jpc: might be better to structure in packages, so to separate the data model from other parts of the code
+object DatasetManager : //{
 
   def load(path: String): Dataset =
     val rows: List[DataRow] = readLines(path).map(parseRow)
@@ -41,4 +43,4 @@ object DatasetManager {
   
   private def splitCsv(line: String): List[String] =
     line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)").map(_.replace("\"", "")).toList
-}
+//}

@@ -1,5 +1,9 @@
 package exo2
 
+// jpc this looks like an auxiliary class, not a part of the "real" data model: Player, Position, etc.
+// In a new version of Scala (3.7) now we can do something like:
+// type DataRow2 (name: String, club:String, position:String, age:Int ) which would be ideal for this case
+
 case class DataRow(
   name: String,
   club: String,
@@ -20,3 +24,4 @@ case class DataRow(
   yellowCards: Int,
   redCards: Int
 )
+

@@ -1,7 +1,8 @@
 package exo2
 
-case class Player(name:String, age:Int, club: Club, nationality: Nationality, positions: PositionSet, stats: PlayerStats) {
+// jpc: maybe create packages to organize the model and separate form other parts of the code
 
+case class Player(name:String, age:Int, club: Club, nationality: Nationality, positions: PositionSet, stats: PlayerStats) : //{ jpc: consistent scala 3 style
   def summary: String =
     "Name: " + name +
     ", Age: " + age +
@@ -9,10 +10,11 @@ case class Player(name:String, age:Int, club: Club, nationality: Nationality, po
     ", Nationality: " + nationality.code +
     ", Positions: " + positions.positions +
     ", Stats: " + stats.summary
-}
+//}  jpc: better to make it a val instead of a def ?
 
-object Player {
+object Player : //{
 
+  // jpc: the DataRow is a class extrinsic from the Player, not sure it is the best idea to put it here. Unless the DataRow becomes an internal case class for the player, in which case maybe it would be fine
   def fromRow(row: DataRow): Player =
     val positions = PositionSet.fromString(row.position)
     val club = Club(row.club)
@@ -52,4 +54,4 @@ object Player {
       positions = positions,
       stats = stats
     )
-}
+//}

@@ -1,6 +1,6 @@
 package exo2
 
-case class GoalkeeperStats(
+case class GoalkeeperStats(  
   matches: Int,
   minutes: Int,
   passesAttempted: Int,

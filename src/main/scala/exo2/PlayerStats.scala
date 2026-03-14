@@ -1,7 +1,7 @@
 package exo2
 
-trait PlayerStats {
+trait PlayerStats ://{
   def matches: Int
   def minutes: Int
   def summary: String
-}
+//}

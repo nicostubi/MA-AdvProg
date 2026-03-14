@@ -3,7 +3,7 @@ package exo2
 enum Position:
   case Goalkeeper, Defender, Midfielder, Forward
 
-object Position {
+object Position : //{
 
   def fromString(value: String): Position = 
     value.trim match
@@ -12,4 +12,4 @@ object Position {
       case "MF" => Position.Midfielder
       case "FW" => Position.Forward
     
-}
+//}
