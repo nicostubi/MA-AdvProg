@@ -6,6 +6,7 @@ import exo2.demos.CovarianceDemo
 import exo2.domain.Stats.GoalkeeperStats
 import exo2.domain.Stats.OutfieldStats
 
+
 @main def run()=
   val dataset = DatasetManager.load("src/main/scala/exo2/data/09-PremierLeague.csv")
 
