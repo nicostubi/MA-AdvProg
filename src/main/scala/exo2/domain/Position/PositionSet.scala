@@ -1,4 +1,5 @@
-package exo2
+package exo2.domain.Position
+import exo2.domain.Position.Position
 
 case class PositionSet(positions: Set[Position]) : // {
 

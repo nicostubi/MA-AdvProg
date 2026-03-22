@@ -1,4 +1,4 @@
-package exo2
+package exo2.parsers
 
 // jpc this looks like an auxiliary class, not a part of the "real" data model: Player, Position, etc.
 // In a new version of Scala (3.7) now we can do something like:

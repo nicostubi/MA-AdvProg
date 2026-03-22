@@ -1,17 +1,24 @@
-package exo2
+package exo2.parsers
 
 import scala.io.Source
+import exo2.domain.Player.Player
+import exo2.domain.Player.PlayerDataset
+import exo2.parsers.DataRow
 
 
 // jpc: might be better to structure in packages, so to separate the data model from other parts of the code
 object DatasetManager : //{
 
-  def load(path: String): Dataset =
+  def load(path: String): PlayerDataset[Player] =
     val rows: List[DataRow] = readLines(path).map(parseRow)
 
-    val players: List[Player] = rows.map(Player.fromRow)
+    val players: List[Player] = rows.map { row =>
+      PlayerRowDecoder.decode(row) match
+        case Right(player) => player
+        case Left(error)   => throw new IllegalArgumentException(error)
+    }
 
-    Dataset(rows, players)
+    PlayerDataset(rows, players)
 
   private def readLines(path: String): List[String] =
     Source.fromFile(path, "UTF-8").getLines().drop(1).toList
